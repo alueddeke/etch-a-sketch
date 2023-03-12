@@ -3,3 +3,7 @@
   height: 550px;
   display: grid;
 }
+
+.square.dragging {
+  background-color: solid black;
+}
