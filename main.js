@@ -1,5 +1,5 @@
 let color = "black";
-let click = false;
+let click = true;
 
 function populateBoard(size) {
   let board = document.querySelector(".board");
@@ -28,8 +28,10 @@ populateBoard(16);
 
 function changeSize(input) {
   if (input >= 2 && input <= 100) {
+    document.querySelector(".error").style.display = "none";
     populateBoard(input);
   } else {
+    document.querySelector(".error").style.display = "flex";
     console.error("Invalid number of squares");
   }
 }
@@ -58,10 +60,20 @@ function reset() {
 }
 
 //listen for clicks in the body
-document.querySelector("body").addEventListener("click", () => {
-  //if click is true, set it to false
-  //if it is false, set it to true
-  //value if click, will be whatever click is not
 
-  click = !click;
+//if click is true, set it to false
+//if it is false, set it to true
+//value if click, will be whatever click is not
+
+//we don't want text to change when we click buttons
+
+document.querySelector("body").addEventListener("click", (e) => {
+  if (e.target.tagName != "BUTTON") {
+    click = !click;
+    if (click) {
+      document.querySelector(".mode").textContent = "Mode: Sketchin";
+    } else {
+      document.querySelector(".mode").textContent = "Mode: Not Sketchin";
+    }
+  }
 });

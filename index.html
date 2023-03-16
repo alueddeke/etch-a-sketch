@@ -7,20 +7,30 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <h1>Let's Etch a Sketch</h1>
-    </header>
     <div class="flex-container">
-      <div class="title"><h1>Etch-a-Sketch</h1></div>
+      <div class="title"><h1>Let's Etch a Sketch</h1></div>
+      <div class="mode">Mode: Sketchin</div>
       <div class="content">
         <div class="board"></div>
         <div class="buttons">
-          <button onclick="changeColor('black')">Black</button>
-          <button onclick="changeColor('white')">Eraser</button>
-          <button onclick="changeColor('random')">Random</button>
-          <button onclick="reset()">Reset</button>
+          <button class="blackButton" onclick="changeColor('black')">
+            Black
+          </button>
+          <button class="eraserButton" onclick="changeColor('white')">
+            Eraser
+          </button>
+          <button class="randomButton" onclick="changeColor('random')">
+            Random
+          </button>
+          <button class="noterase" onclick="reset()">Reset</button>
         </div>
         <div>
           <input
@@ -30,6 +40,7 @@
             onchange="changeSize(this.value)"
           />
           <button>Set Size</button>
+          <div class="error">"Input must be between 2 and 100</div>
         </div>
       </div>
     </div>
